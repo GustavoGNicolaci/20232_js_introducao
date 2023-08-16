@@ -4,16 +4,122 @@
 //não use o operador ==
 //use o operador ===
 
+function eAgora () {
+    let cont = 1
+    function f1(){
+        console.log(cont)
+        cont++
+    }
+    function f2(){
+        console.log(cont)
+    }
+    return {f1, f2}
+}
+
+let resultado = eAgora()
+resultado.f1()
+resultado.f2()
+
+// function saudacoesFactory(saudacao, nome){
+//     return function(){
+//         console.log(`${saudacao}, ${nome}!`)
+//     }
+// }
+
+// let olaJoao = saudacoesFactory('Ola', 'João');
+
+// let tchauJoao = saudacoesFactory('Tchau', 'João');
+
+// olaJoao()
+
+// tchauJoao()
+
+
+// function f(){
+//     //escopo externo da função g
+//     let nome = 'João'
+//     function g() {
+//         // escopo interno da função g
+//         console.log(nome)
+//     }
+//     g()
+// }
+// f()
+
+// function f (funcao) {
+//    return funcao()
+// }
+
+// function g (){
+//     function outraFuncao(){
+//         console.log("fui criada pela g")
+//     }
+//     return outraFuncao
+// }
+
+// //esses 2 códigos fazem a mesma coisa
+// f(g())
+// f(g)()
+
+// let umaFuncao = function () {
+//     console.log("Fui armazenada em uma variável")
+// }
+// umaFuncao()
+
+// function g(){
+//     console.log ("1")
+//     function outraFuncao(){
+//         console.log("2")
+//         return function() {
+//             console.log('4')
+//         }
+//     }
+//     console.log("3")
+//     outraFuncao()()
+//     return outraFuncao
+// }
+
+// const gResult = g()
+// gResult()
+// g()()()
+
+// function f(funcao){ //funcao é callable
+// funcao()
+// }
+// //chamando a função f, colocando a função como parametro, ativando ela sem um nome como parametro
+// f(function () {
+//     console.log("Estou sendo passada para f")
+// })
+
+//arrow functions
+
+// const hello = () => {console.log("Hello, Arrow functions")}
+// hello()
+
+//arrow functions, corpo sem chaves
+// const hello = () => console.log("Hello, arrow function sem chaves")
+// hello()
+
+// const dobro = (n) => {return n * 2}
+// const dobro = (n) => n * 2
+// const dobro = n => n * 2
+// console.log(dobro(3));
+
+// const ehPar = (n) => n % 2 ===0
+// console.log(ehPar(3));
+
+
+
 //funções
 //jeito antigo de definir uma função em js
 
 //valor padrão para o parâmetro n
-const triplo = function( n = 5){
-    return n * 3
-}
-const res1 = triplo()
-const res2 = triplo(20)
-console.log(res1, res2)
+// const triplo = function( n = 5){
+//     return n * 3
+// }
+// const res1 = triplo()
+// const res2 = triplo(20)
+// console.log(res1, res2)
 
 // const dobro = function (n){
 //     return 2 * n
