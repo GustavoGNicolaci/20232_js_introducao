@@ -4,21 +4,164 @@
 //não use o operador ==
 //use o operador ===
 
-function eAgora () {
-    let cont = 1
-    function f1(){
-        console.log(cont)
-        cont++
-    }
-    function f2(){
-        console.log(cont)
-    }
-    return {f1, f2}
+//1 + 2 + 3 ... + 9 + 10
+function demorada(numero) {
+    let p = new Promise(function(resolve, reject){
+       let res = 0
+       for(let i = 1; i <= numero; i++)
+            res += i
+        resolve(res)
+    })
+    return p
 }
+//then: especificamos a função que executa quando a computação termina com sucesso
+//catch: especificamos a função que executa quando a computação termina com falha
+damorada(10)
+.then((resultado) => console.log(resultado))
+.catch((erro) => console.log(erro))
 
-let resultado = eAgora()
-resultado.f1()
-resultado.f2()
+//call back hell
+// const fs = require('fs')
+// const abrirArquivo = function(nomeArquivo) {
+//     const exibirConteudo = function(erro, conteudo){
+//         if(erro)
+//             console.log('Deu erro')
+//         else{
+//             console.log(conteudo.toString())
+//             const dobro = 2 * +conteudo.toString()
+//             const terminou = function (erro) {
+//                 console.log(erro ? 'Deu erro' : 'Blz, escreveu')
+//             }
+//             fs.writeFile('dobro.txt', dobro.toString(), terminou)
+//         }
+//     }
+//     fs.readFile(nomeArquivo, exibirConteudo)
+// }
+// abrirArquivo('arquivo.txt')
+
+//computação síncrona(bloqueante) e assíncrona(não bloqueante)
+//assíncrona:
+// setTimeout(function(){
+//     console.log('Dentro da timeout')
+// }, 0)
+// const atual = new Date().getTime() + 5000;
+// while(new Date().getTime() <= atual);
+// console.log('Fora da timeout')
+//*************************************************************
+// function demorada() {
+//     const atualMais2Segundos = new Date().getTime() + 2000
+//     while (new Date().getTime() <= atualMais2Segundos);
+//     const d = 8 + 4
+//     return d
+// }
+// const a = 2 + 3
+// const b = 5 + 9
+
+// setTimeout(function(){
+//     const d = demorada()
+//     console.log(`d: ${d}`)
+// }, 500)
+
+// const d = demorada()
+// const e = 2 + a + b
+// console.log(e)
+
+//síncrona:
+// const a = 2 + 7
+// const b = 5 + 7
+// console.log(a + b)
+// console + .log('Eu primeiro')
+// console.log('Agora eu')
+// console.log('Sempre vou ser a última...:(')
+
+
+//Objetos literais Javascript
+//JSON: JavaScript Object Notation
+//coleção de pares chave/valor
+
+//ela deve fazer soma e subtração
+//soma com arrow function sem {}
+//subtração com function regular
+//testar: somar 1 + 2
+//subtrair 2 - 1
+
+// const calculadora = {
+//     soma: (a, b) => a + b,
+//     subtracao: function (a, b) {
+//         return a - b
+//     }
+// }
+
+// console.log(calculadora.soma(1, 2))
+// console.log(calculadora.subtracao(2, 1))
+
+
+/*
+uma concessionária tem cnpj e endereço. Endereço tem logradouro e numero. 
+Ela possui uma quantidade arbitraria de veiculos. 
+Cada veiculo possui, ano de fabricação, modelo e marca.
+*/
+
+// const concessionaria = {
+//     cnpj: '19782428',
+//     endereco: {
+//         logradouro: "Rua A",
+//         numero: 14
+//     },
+//     veiculos: [
+//         {
+//             placa: "EZA0111",
+//             anoFabricacao: 1988,
+//             modelo: "A1",
+//             marca: "A1"
+//         }
+//         ,
+//         {
+//             placa: "FLW0874",
+//             anoFabricacao: 2011,
+//             modelo: "A2",
+//             marca: "A2"
+//         }
+//     ]
+// }
+// const veiculos = concessionaria.veiculos
+// for (let veiculo of veiculos) {
+//     console.log(veiculo)
+//     console.log('***************************')
+// }
+
+// const pessoa = {
+//     nome: "Ana",
+//     idade: 22,
+//     endereco: {
+//         logradouro: "Rua B",
+//         numero: 12,
+//         bairro: "Vila J"
+//     }
+// }
+// console.log(`Me chamo ${pessoa['nome']}`)
+// console.log(`Tenho ${pessoa.idade} anos`)
+// console.log(`${pessoa.endereco.bairro}`)
+// console.log(`${pessoa['endereco']['numero']}`)
+// console.log(`${pessoa['endereco'].logradouro}`)
+
+
+
+// function eAgora () {
+//     let cont = 1
+//     function f1(){
+//         console.log(cont)
+//         cont++
+//     }
+//     function f2(){
+//         console.log(cont)
+//     }
+//     return {f1, f2}
+// }
+
+// let resultado = eAgora()
+// resultado.f1()
+// resultado.f2()
 
 // function saudacoesFactory(saudacao, nome){
 //     return function(){
