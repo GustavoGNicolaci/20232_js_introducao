@@ -4,21 +4,97 @@
 //não use o operador ==
 //use o operador ===
 
+
+
 //1 + 2 + 3 ... + 9 + 10
-function demorada(numero) {
-    let p = new Promise(function(resolve, reject){
-       let res = 0
-       for(let i = 1; i <= numero; i++)
-            res += i
-        resolve(res)
-    })
-    return p
-}
-//then: especificamos a função que executa quando a computação termina com sucesso
-//catch: especificamos a função que executa quando a computação termina com falha
-damorada(10)
-.then((resultado) => console.log(resultado))
-.catch((erro) => console.log(erro))
+// function rapidinha (numero) {
+//     return numero >= 0 ? Promise.resolve(numero / 2 * (numero + 1)) : Promise.reject("Valor deve ser maior ou igual a zero")
+// }
+
+// rapidinha(10)
+// .then(res => console.log(`Deu certo: ${res}`))
+// .catch(erro => console.log(`Deu errado: ${erro}`))
+
+// rapidinha(-10)
+// .then(res => console.log(`Deu certo: ${res}`))
+// .catch(erro => console.log(`Deu errado: ${erro}`))
+
+//Fazer a mesma função só que com arrow function
+// const rapidinha = (numero) => numero >= 0 ? Promise.resolve(numero / 2 * (numero + 1)) : Promise.reject("Valor deve ser maior ou igual a zero")
+
+// rapidinha(10)
+// .then(res => console.log(`Deu certo: ${res}`))
+// .catch(erro => console.log(`Deu errado: ${erro}`))
+
+// rapidinha(-10)
+// .then(res => console.log(`Deu certo: ${res}`))
+// .catch(erro => console.log(`Deu errado: ${erro}`))
+
+//uma versão do rapidinha sem o Promise.resolve e o Promise.reject
+// function rapidinha (numero) {
+//     const p = new Promise(function(resolve, resejct) {
+//         if (numero >= 0) {
+//             let res = 0
+//             res = numero / 2 * (numero + 1) 
+//             resolve(res);
+//         }
+//         else {
+//             reject("Valor deve ser maior ou igual a zero")
+//         }
+        
+//     })
+//     return p;
+// }
+
+// rapidinha(10)
+// .then(res => console.log(`Deu certo: ${res}`))
+// .catch(erro => console.log(`Deu errado: ${erro}`))
+
+// rapidinha(-10)
+// .then(res => console.log(`Deu certo: ${res}`))
+// .catch(erro => console.log(`Deu errado: ${erro}`))
+
+//Promise colocando o que acontece quando o parametro esta certo e quando o parametro da erro (definindo resolve e reject)
+//1 + 2 + 3 ... + 9 + 10
+// function demorada(numero){
+//     const p = new Promise(function(resolve, reject){
+//         if (numero >= 0) {
+//         let res = 0;
+//         for (let i = 1; i <= numero; i++)
+//             res += i;
+//         resolve(res); 
+//         }
+//         else {
+//             reject("o numero deve ser maior ou igual a zero")
+//         }
+//     });
+//     return p;
+// }
+// const minhaPromise = demorada(-10);
+// minhaPromise.then((resultado) => {
+//     console.log(`Deu certo: ${resultado}.`)
+// })
+// .catch((erro) => {
+//     console.log(`Falhou: ${erro}.`)
+// })
+
+
+//1 + 2 + 3 ... + 9 + 10
+//Uma promise é um objeto por meio do qual uma função pode propagar um resultado ou um erro em algum momento no futuro.
+// function demorada(numero) {
+//     let p = new Promise(function(resolve, reject){
+//        let res = 0
+//        for(let i = 1; i <= numero; i++)
+//             res += i
+//         resolve(res)
+//     })
+//     return p
+// }
+// //then: especificamos a função que executa quando a computação termina com sucesso
+// //catch: especificamos a função que executa quando a computação termina com falha
+// damorada(10)
+// .then((resultado) => console.log(resultado))
+// .catch((erro) => console.log(erro))
 
 //call back hell
 // const fs = require('fs')
